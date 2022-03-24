@@ -1,4 +1,4 @@
-import { checkIfLoggedIn, getPolls, logout, makePoll } from '../fetch-utils';
+import { checkIfLoggedIn, getPolls, logout, makePoll } from '../fetch-utils.js';
 import { renderPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
