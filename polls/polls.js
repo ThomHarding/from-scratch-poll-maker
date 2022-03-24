@@ -1,14 +1,15 @@
-import { checkIfLoggedIn, getPolls, logout } from '../fetch-utils';
+import { checkIfLoggedIn, getPolls, logout, makePoll } from '../fetch-utils';
+import { renderPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
 const finishPollButton = document.getElementById('finish-button');
-const votes1UpButton =  document.getElementById('option-1-up-button');
-const votes1DownButton =  document.getElementById('option-1-down-button');
+const votes1UpButton = document.getElementById('option-1-up-button');
+const votes1DownButton = document.getElementById('option-1-down-button');
 const votes1Display = document.getElementById('option-1-votes');
-const votes2UpButton =  document.getElementById('option-1-up-button');
-const votes2DownButton =  document.getElementById('option-2-down-button');
+const votes2UpButton = document.getElementById('option-1-up-button');
+const votes2DownButton = document.getElementById('option-2-down-button');
 const votes2Display = document.getElementById('option-2-votes');
-const pastPollDisplay = document.getElementById('past-polls')
+const pastPollDisplay = document.getElementById('past-polls');
 const newPollForm = document.getElementById('new-poll-form');
 const currentPollDisplay = document.getElementById('current-poll');
 
@@ -20,7 +21,7 @@ let votes2 = 0;
 let option1 = '';
 let option2 = '';
 
-let currentPoll = {title: '', option1: '', option2: '', votes1: 0, votes2: 0 };
+let currentPoll = { title: '', option1: '', option2: '', votes1: 0, votes2: 0 };
 
 window.addEventListener('load', async () => {
     await getPolls();
@@ -31,7 +32,7 @@ votes1UpButton.addEventListener('click', () => {
     displayCurrentPollEl();
 });
 
-votes1UpButton.addEventListener('click', () => {
+votes1DownButton.addEventListener('click', () => {
     votes1--;
     displayCurrentPollEl();
 });
@@ -51,9 +52,13 @@ logoutButton.addEventListener('click', () => {
 });
 
 finishPollButton.addEventListener('click', async () => {
-    //insert current poll into supabase table
+    await makePoll(title, option1, option2, votes1, votes2);
     displayAllPolls();
-    //reset state
+    title = '';
+    votes1 = 0;
+    votes2 = 0;
+    option1 = '';
+    option2 = '';
     displayCurrentPollEl();
 });
 

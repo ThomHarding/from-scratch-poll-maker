@@ -33,12 +33,12 @@ export async function getPolls() {
     return response.data;
 }
 
-export async function makePoll(question, option1, option2, votes1, votes2) {
+export async function makePoll(title, option1, option2, votes1, votes2) {
     const response = await client
         .from('polls')
         .insert([
             {   
-                question,
+                title: title,
                 option1: option1,
                 option2: option2,
                 votes1: votes1,
