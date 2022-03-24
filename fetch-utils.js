@@ -51,7 +51,7 @@ export async function makePoll(title, option1, option2, votes1, votes2) {
 
 export async function checkIfLoggedIn() {
     const user = await getUser();
-    if (!user) location.replace('../'); 
+    if (!user) window.location.href('../'); 
 }
 
 export function getUser() {
