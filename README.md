@@ -29,6 +29,7 @@ required js
       fetch polls form supabase
       displayallpolls
   fetch utils
+    check if they're logged in
     sign up
     sign in
     logout
