@@ -87,9 +87,10 @@ function updateCurrentPoll() {
 }
 
 async function displayAllPolls() {
-    //get the polls from supabase
+    const polls = await getPolls();
     pastPollDisplay.textContent = '';
-    //loop through polls got above
-        //render it
-        //append it to past polls
+    for (let poll of polls) {
+        let renderedPoll = renderPoll(poll);
+        pastPollDisplay.append(renderedPoll);
+    }
 }
