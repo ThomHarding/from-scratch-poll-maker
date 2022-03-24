@@ -51,10 +51,10 @@ export async function makePoll(title, option1, option2, votes1, votes2) {
 
 export async function checkIfLoggedIn() {
     const user = await getUser();
-
     if (!user) location.replace('../'); 
 }
 
-export async function getUser() {
-    return client.auth.session();
+export function getUser() {
+    const user = client.auth.session();
+    return user;
 }
