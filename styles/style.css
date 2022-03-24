@@ -103,3 +103,7 @@ footer {
     flex-direction: row;
     justify-content: space-around;
 }
+
+form label {
+    display: block;
+}
