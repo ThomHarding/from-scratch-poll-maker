@@ -97,3 +97,9 @@ footer {
 #signin {
     margin: 20px;
 }
+
+.current-poll {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

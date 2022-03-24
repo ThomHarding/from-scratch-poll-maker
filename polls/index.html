@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Polls</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+    </header>
+    <main>
+        <section class="main-section">
+            <div class="top">
+                <div class="left">
+                    <h2>Current Poll</h2>
+                    <div class="current-poll">
+                        <div class="Title">Title</div>
+                        <div id="curr-option-1">
+                            <div class="option-1-name">Default Option 1</div>
+                            <div class="option-1-votes">0</div>
+                            <button class="option-1-up-button">Vote For</button>
+                            <button class="option-1-down-button">Vote Against</button>
+                        </div>
+                        <div id="curr-option-2">
+                            <div class="option-2-name">Default Option 2</div>
+                            <div class="option-2-votes">0</div>
+                            <button class="option-2-up-button">Vote For</button>
+                            <button class="option-2-down-button">Vote Against</button>
+                        </div>
+                        <button class="finish-button">Finish Poll</button>
+                    </div>
+                </div>
+                    <form id="new-poll-form">
+                        <label>
+                            Poll Title
+                            <input name="Title" />
+                        </label>
+    
+                        <label>
+                            Option One Name
+                            <input name="option-1-name" />
+                        </label>
+    
+                        <label>
+                            Option Two Name
+                            <input name="option-2-name" />
+                        </label>
+                        <button>Add Title and Options</button>
+                    </form>
+            </div>
+            <div class="bottom">
+                <h2>Past Polls</h2>
+                <div class="past-polls">
+
+                </div>
+            </div>
+        </section>
+        <button id="logout">Logout</button>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="./polls.js"></script>
+</body>
+
+</html>
