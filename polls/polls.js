@@ -9,12 +9,18 @@ const votes2UpButton =  document.getElementById('option-1-up-button');
 const votes2DownButton =  document.getElementById('option-2-down-button');
 const votes2Display = document.getElementById('option-2-votes');
 const pastPollDisplay = document.getElementById('past-polls')
-//get the new poll form element
+const newPollForm = document.getElementById('new-poll-form');
+const currentPollDisplay = document.getElementById('current-poll');
 
 checkIfLoggedIn();
 
+let title = '';
 let votes1 = 0;
 let votes2 = 0;
+let option1 = '';
+let option2 = '';
+
+let currentPoll = {title: '', option1: '', option2: '', votes1: 0, votes2: 0 };
 
 window.addEventListener('load', async () => {
     await getPolls();
@@ -44,25 +50,46 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-finishPollButton.addEventListener('click', () => {
+finishPollButton.addEventListener('click', async () => {
     //insert current poll into supabase table
     displayAllPolls();
     //reset state
     displayCurrentPollEl();
 });
 
+newPollForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(newPollForm);
+
+    title = data.get('title');
+    option1 = data.get('option-1-name');
+    option2 = data.get('option-2-name');
+    newPollForm.reset();
+    displayCurrentPollEl();
+});
+
 function displayCurrentPollEl() {
-    //update dom with state
+    currentPollDisplay.textContent = '';
+    updateCurrentPoll();
+    let renderedPoll = renderPoll(currentPoll);
+    renderedPoll.classList.add('current');
+    currentPollDisplay.append(renderedPoll);
 }
 
-function displayAllPolls() {
+function updateCurrentPoll() {
+    currentPoll = {
+        title: title,
+        option1: option1,
+        option2: option2,
+        votes1: votes1,
+        votes2: votes2 };
+}
+
+async function displayAllPolls() {
     //get the polls from supabase
     pastPollDisplay.textContent = '';
     //loop through polls got above
         //render it
         //append it to past polls
 }
-
-    submit add questions and options buttons
-      update variable for question and options of current poll
-      displalycurrentpollel
