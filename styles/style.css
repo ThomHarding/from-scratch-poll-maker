@@ -89,3 +89,11 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+#signup {
+    margin: 20px;
+}
+
+#signin {
+    margin: 20px;
+}

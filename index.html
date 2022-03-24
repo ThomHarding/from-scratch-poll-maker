@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>From Scratch Poll Maker</title>
 </head>
 
@@ -20,28 +21,24 @@
     </header>
     <main>
         <section class="main-section">
-            <img class="main-logo" src="./assets/alchemy-logo.png" />
             <h2>
                 Poll Maker
             </h2>
 
-            <form id="poll-input-options">
-                <label>
-                    Question
-                    <input name="poll-title-input" />
-                </label>
-                <label>
-                    Option A
-                    <input name="input-option-a" />
-                </label>
-                <label>
-                    Option B
-                    <input name="input-option-b" />
-                </label>
-                
-                <button id="start-poll">Start Poll</button>
-            </form>
-
+            <div id="signin">
+                <form id="signin-form">
+                    Signin Email: <input id="signin-email">
+                    Signin Password: <input id="signin-password">
+                    <button id="signin-button">Sign In</button>
+                </form>
+            </div>
+            <div id="signup">
+                <form id="signup-form">
+                Signup Email: <input id="signup-email">
+                Signup Password: <input id="signup-password">
+                <button id="signup-button">Sign Up</button>
+                </form>
+</div>
         </section>
     </main>
     <footer>
