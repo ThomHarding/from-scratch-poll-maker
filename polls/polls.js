@@ -5,10 +5,8 @@ const logoutButton = document.getElementById('logout');
 const finishPollButton = document.getElementById('finish-button');
 const votes1UpButton = document.getElementById('option-1-up-button');
 const votes1DownButton = document.getElementById('option-1-down-button');
-const votes1Display = document.getElementById('option-1-votes');
-const votes2UpButton = document.getElementById('option-1-up-button');
+const votes2UpButton = document.getElementById('option-2-up-button');
 const votes2DownButton = document.getElementById('option-2-down-button');
-const votes2Display = document.getElementById('option-2-votes');
 const pastPollDisplay = document.getElementById('past-polls');
 const newPollForm = document.getElementById('new-poll-form');
 const currentPollDisplay = document.getElementById('current-poll');
@@ -75,10 +73,13 @@ newPollForm.addEventListener('submit', (e) => {
 });
 
 function displayCurrentPollEl() {
-    currentPollDisplay.textContent = '';
+    let currentPolls = document.querySelectorAll('.current-poll');
+    for (let poll of currentPolls) {
+        poll.parentNode.removeChild(poll);
+    }
     updateCurrentPoll();
     let renderedPoll = renderPoll(currentPoll);
-    renderedPoll.classList.add('current');
+    renderedPoll.classList.add('current-poll');
     currentPollDisplay.append(renderedPoll);
 }
 
