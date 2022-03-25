@@ -78,7 +78,7 @@ header img {
 p {
     margin: var(--gutter);
 }
-  
+
 footer {
     position: fixed;
     width: 100%;
@@ -88,4 +88,53 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+#signup {
+    margin: 20px;
+}
+
+#signin {
+    margin: 20px;
+}
+
+.current-poll {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+form label {
+    display: block;
+}
+
+.current-poll div {
+    margin: 1px;
+}
+
+.poll {
+    background-color: lightseagreen;
+    outline: solid black 1px;
+    margin: 1px;
+}
+
+.poll div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.top{
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#current-poll {
+    margin-right: 20px;
+}
+
+#past-polls{
+    display: flex;
+    flex-direction: row;
 }
