@@ -123,3 +123,13 @@ form label {
     justify-content: center;
     align-content: center;
 }
+
+.top{
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#current-polls {
+    margin-right: 20px;
+}

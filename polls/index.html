@@ -23,9 +23,8 @@
     <main>
         <section class="main-section">
             <div class="top">
-                <div class="left">
-                    <h2>Current Poll</h2>
-                    <div id="current-poll">
+                    <div id="current-polls">
+                        <h2>Current Poll</h2>
                         <div id="curr-poll-title">Title</div>
                         <div id="curr-option-1">
                             <div id="option-1-name">Default Option 1</div>
@@ -40,7 +39,6 @@
                             <button id="option-2-down-button">Vote Against</button>
                         </div>
                     </div>
-                </div>
                     <form id="new-poll-form">
                         <label>
                             Poll Title
@@ -56,10 +54,9 @@
                             Option Two Name
                             <input name="option-2-name" />
                         </label>
-                        <button>Add Title and Options</button>
+                        <button>Adjust Title and Options</button>
+                        <button id="finish-button">Finish Poll</button>
                     </form>
-                    
-                    <button id="finish-button">Finish Poll</button>
             </div>
             <div class="bottom">
                 <h2>Past Polls</h2>
