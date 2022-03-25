@@ -9,17 +9,19 @@ const votes2UpButton = document.getElementById('option-2-up-button');
 const votes2DownButton = document.getElementById('option-2-down-button');
 const pastPollDisplay = document.getElementById('past-polls');
 const newPollForm = document.getElementById('new-poll-form');
-const currentPollDisplay = document.getElementById('current-poll');
+const currPollTitle = document.getElementById('current-poll-title');
+const currVotes1Display = document.getElementById('option-1-votes');
+const currVotes2Display = document.getElementById('option-2-votes');
+const currOption1Name = document.getElementById('option-1-name');
+const currOption2Name = document.getElementById('option-2-name');
 
 checkIfLoggedIn();
 
-let title = 'Default Poll Title';
+let title = 'Title';
 let votes1 = 0;
 let votes2 = 0;
 let option1 = 'Default Option 1';
 let option2 = 'Default Option 2';
-
-let currentPoll = { title: '', option1: '', option2: '', votes1: 0, votes2: 0 };
 
 window.addEventListener('load', async () => {
     displayAllPolls();
@@ -52,7 +54,7 @@ logoutButton.addEventListener('click', () => {
 finishPollButton.addEventListener('click', async () => {
     await makePoll(title, option1, option2, votes1, votes2);
     displayAllPolls();
-    title = 'Default Poll Title';
+    title = 'Title';
     votes1 = 0;
     votes2 = 0;
     option1 = 'Default Option 1';
@@ -68,6 +70,13 @@ newPollForm.addEventListener('submit', (e) => {
     title = data.get('title');
     option1 = data.get('option-1-name');
     option2 = data.get('option-2-name');
+    if (title === '') {
+        title = 'Title';
+    } if (option1 === '') {
+        option1 = 'Default Option 1';
+    } if (option2 === '') {
+        option2 = 'Default Option 2';
+    }
     newPollForm.reset();
     displayCurrentPollEl();
 });
@@ -77,19 +86,11 @@ function displayCurrentPollEl() {
     for (let poll of currentPolls) {
         poll.parentNode.removeChild(poll);
     }
-    updateCurrentPoll();
-    let renderedPoll = renderPoll(currentPoll);
-    renderedPoll.classList.add('current-poll');
-    currentPollDisplay.append(renderedPoll);
-}
-
-function updateCurrentPoll() {
-    currentPoll = {
-        title: title,
-        option1: option1,
-        option2: option2,
-        votes1: votes1,
-        votes2: votes2 };
+    currPollTitle.textContent = title;
+    currOption1Name.textContent = option1;
+    currOption2Name.textContent = option2;
+    currVotes1Display.textContent = votes1;
+    currVotes2Display.textContent = votes2;
 }
 
 async function displayAllPolls() {

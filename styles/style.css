@@ -130,6 +130,11 @@ form label {
     align-items: center;
 }
 
-#current-polls {
+#current-poll {
     margin-right: 20px;
+}
+
+#past-polls{
+    display: flex;
+    flex-direction: row;
 }
