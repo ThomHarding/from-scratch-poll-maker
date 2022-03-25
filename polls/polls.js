@@ -1,4 +1,4 @@
-import { checkIfLoggedIn, getPolls, logout, makePoll } from '../fetch-utils.js';
+import { checkIfLoggedIn, getPolls, logout, createPoll } from '../fetch-utils.js';
 import { renderPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
@@ -52,7 +52,7 @@ logoutButton.addEventListener('click', () => {
 });
 
 finishPollButton.addEventListener('click', async () => {
-    await makePoll(title, option1, option2, votes1, votes2);
+    await createPoll(title, option1, option2, votes1, votes2);
     displayAllPolls();
     title = 'Title';
     votes1 = 0;
