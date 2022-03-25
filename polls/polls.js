@@ -13,16 +13,16 @@ const currentPollDisplay = document.getElementById('current-poll');
 
 checkIfLoggedIn();
 
-let title = '';
+let title = 'Default Poll Title';
 let votes1 = 0;
 let votes2 = 0;
-let option1 = '';
-let option2 = '';
+let option1 = 'Default Option 1';
+let option2 = 'Default Option 2';
 
 let currentPoll = { title: '', option1: '', option2: '', votes1: 0, votes2: 0 };
 
 window.addEventListener('load', async () => {
-    await getPolls();
+    displayAllPolls();
 });
 
 votes1UpButton.addEventListener('click', () => {
@@ -52,11 +52,11 @@ logoutButton.addEventListener('click', () => {
 finishPollButton.addEventListener('click', async () => {
     await makePoll(title, option1, option2, votes1, votes2);
     displayAllPolls();
-    title = '';
+    title = 'Default Poll Title';
     votes1 = 0;
     votes2 = 0;
-    option1 = '';
-    option2 = '';
+    option1 = 'Default Option 1';
+    option2 = 'Default Option 2';
     displayCurrentPollEl();
 });
 
@@ -97,6 +97,7 @@ async function displayAllPolls() {
     pastPollDisplay.textContent = '';
     for (let poll of polls) {
         let renderedPoll = renderPoll(poll);
+        renderedPoll.classList.add('poll');
         pastPollDisplay.append(renderedPoll);
     }
 }

@@ -100,10 +100,26 @@ footer {
 
 .current-poll {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 form label {
     display: block;
+}
+
+.current-poll div {
+    margin: 1px;
+}
+
+.poll {
+    background-color: lightseagreen;
+    outline: solid black 1px;
+    margin: 1px;
+}
+
+.poll div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }

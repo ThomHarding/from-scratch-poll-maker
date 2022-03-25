@@ -17,7 +17,6 @@ signInForm.addEventListener('submit', async (e) => {
     const data = new FormData(signInForm);
     const email = data.get('email');
     const password = data.get('password');
-    console.log(email + ' ' + password);
     await signIn(email, password);
     window.location.href = './polls';
 });

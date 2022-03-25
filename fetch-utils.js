@@ -29,7 +29,6 @@ export async function getPolls() {
     const response = await client
         .from('polls')
         .select();
-
     return response.data;
 }
 
@@ -51,7 +50,7 @@ export async function makePoll(title, option1, option2, votes1, votes2) {
 
 export async function checkIfLoggedIn() {
     const user = await getUser();
-    if (!user) window.location.href('../'); 
+    if (!user) location.replace('../'); 
 }
 
 export function getUser() {
